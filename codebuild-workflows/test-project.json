@@ -3,13 +3,13 @@
     "description": "codebuild project for testing",
     "source": {
         "type": "CODECOMMIT",
-        "location": "$SOURCE_REPO",
+        "location": "$SOURCE_REPO_URI",
         "buildspec": "buildspec.cadvisor.yaml"
     },
     "sourceVersion": "refs/heads/gpl-ecs",
     "artifacts": {
         "type": "S3",
-        "location": "$ARTIFACT_BUCKET"
+        "location": "$CODEPIPELINE_BUCKET"
     },
     "cache": {
         "type": "LOCAL",
@@ -22,13 +22,6 @@
         "type": "LINUX_CONTAINER",
         "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
         "computeType": "BUILD_GENERAL1_SMALL",
-        "environmentVariables": [
-            {
-                "name": "ECR_REPO",
-                "value": "156010108988.dkr.ecr.ap-south-1.amazonaws.com",
-                "type": "PARAMETER_STORE"
-            }
-        ],
         "imagePullCredentialsType": "CODEBUILD",
         "privilegedMode": true
     },
