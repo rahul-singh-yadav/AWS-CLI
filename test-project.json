@@ -38,8 +38,7 @@
     ],
     "logsConfig": {
         "cloudWatchLogs": {
-          "status": "ENABLED",
-          "groupName": "Test-Log-Group"
+          "status": "ENABLED"
         }
     }
 }
