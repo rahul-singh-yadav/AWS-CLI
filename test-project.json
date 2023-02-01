@@ -5,6 +5,7 @@
         "type": "CODECOMMIT",
         "location": "https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/ObservabilityStack"
     },
+    "sourceVersion": "refs/heads/gpl-ecs",
     "artifacts": {
         "type": "S3",
         "location": "codepipeline-ap-south-1-212316399146"
