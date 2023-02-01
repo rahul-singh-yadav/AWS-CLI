@@ -1,0 +1,45 @@
+{
+    "name": "test-build-project",
+    "description": "codebuild project for testing",
+    "source": {
+        "type": "CODEPIPELINE"
+    },
+    "sourceVersion": "gpl-ecs",
+    "artifacts": {
+        "type": "CODEPIPELINE"
+    },
+    "cache": {
+        "type": "LOCAL",
+        "modes": [
+            "LOCAL_DOCKER_LAYER_CACHE",
+            "LOCAL_SOURCE_CACHE"
+        ]
+    },
+    "environment": {
+        "type": "LINUX_CONTAINER",
+        "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+        "computeType": "BUILD_GENERAL1_SMALL",
+        "environmentVariables": [
+            {
+                "name": "ECR_REPO",
+                "value": "156010108988.dkr.ecr.ap-south-1.amazonaws.com",
+                "type": "PARAMETER_STORE"
+            }
+        ],
+        "imagePullCredentialsType": "CODEBUILD",
+        "privilegedMode": true
+    },
+    "serviceRole": "arn:aws:iam::156010108988:role/service-role/cfn-CodeBuildServiceRole",
+    "tags": [
+        {
+            "key": "Env",
+            "value": "Test"
+        }
+    ],
+    "logsConfig": {
+        "cloudWatchLogs": {
+          "status": "ENABLED",
+          "groupName": "Test-Log-Group"
+        }
+    }
+}
