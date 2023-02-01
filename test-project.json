@@ -2,11 +2,13 @@
     "name": "test-build-project",
     "description": "codebuild project for testing",
     "source": {
-        "type": "CODEPIPELINE"
+        "type": "CODECOMMIT",
+        "location": "https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/ObservabilityStack"
     },
     "sourceVersion": "gpl-ecs",
     "artifacts": {
-        "type": "CODEPIPELINE"
+        "type": "S3",
+        "location": "codepipeline-ap-south-1-212316399146"
     },
     "cache": {
         "type": "LOCAL",
