@@ -1,0 +1,5 @@
+## Parameters used
+
+- $SOURCE_REPO_URI
+- $CODEPIPELINE_BUCKET
+- $IAM_SERVICE_ROLE
