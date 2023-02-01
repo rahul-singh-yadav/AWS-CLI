@@ -3,7 +3,8 @@
     "description": "codebuild project for testing",
     "source": {
         "type": "CODECOMMIT",
-        "location": "$SOURCE_REPO"
+        "location": "$SOURCE_REPO",
+        "buildspec": "buildspec.cadvisor.yaml"
     },
     "sourceVersion": "refs/heads/gpl-ecs",
     "artifacts": {
@@ -31,7 +32,7 @@
         "imagePullCredentialsType": "CODEBUILD",
         "privilegedMode": true
     },
-    "serviceRole": "IAM_SERVICE_ROLE",
+    "serviceRole": "$IAM_SERVICE_ROLE",
     "tags": [
         {
             "key": "Env",
