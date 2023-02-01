@@ -3,12 +3,12 @@
     "description": "codebuild project for testing",
     "source": {
         "type": "CODECOMMIT",
-        "location": "https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/ObservabilityStack"
+        "location": "$SOURCE_REPO"
     },
     "sourceVersion": "refs/heads/gpl-ecs",
     "artifacts": {
         "type": "S3",
-        "location": "codepipeline-ap-south-1-212316399146"
+        "location": "$ARTIFACT_BUCKET"
     },
     "cache": {
         "type": "LOCAL",
@@ -31,7 +31,7 @@
         "imagePullCredentialsType": "CODEBUILD",
         "privilegedMode": true
     },
-    "serviceRole": "arn:aws:iam::156010108988:role/service-role/cfn-CodeBuildServiceRole",
+    "serviceRole": "IAM_SERVICE_ROLE",
     "tags": [
         {
             "key": "Env",
