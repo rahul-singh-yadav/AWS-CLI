@@ -1,0 +1,13 @@
+{
+    "pipeline": {
+        "roleArn": "arn:aws:iam:<account_id>:role/service-role/<code_pipeline_service_role>",
+        "stages":[],
+        "artifactStore":{},
+        "name": "three-stage-skeleton",
+        "version": "1"
+    },
+    "tags": [{
+        "key": "Env",
+        "value": "Dev"
+    }]
+}
