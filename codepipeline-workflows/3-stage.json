@@ -28,16 +28,61 @@
                         "runOrder": 1
                     }
                 ]
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "At-Codebuild",
+                        "actionTypeId": {
+                            "category": "Build",
+                            "owner": "AWS",
+                            "version": "1",
+                            "provider": "Codebuild"
+                        },
+                        "inputArtifacts": [{"name": "<SourceArtifacts>"}],
+                        "outputArtifacts": [{"name": "<BuildArtifacts>"}],
+                        "configuration": {
+                            "PrimarySource": "<SourceArtifacts>",
+                            "ProjectName": "<codebuild_project_name>"
+                        },
+                        "runOrder": 1
+                    }
+                ]
+            },
+            {
+                "name": "Test",
+                "actions": [
+                    {
+                        "name": "At-EC2",
+                        "actionTypeId": {
+                            "category": "Deploy",
+                            "owner": "AWS",
+                            "version": "1",
+                            "provider": "Codedeploy"
+                        },
+                        "inputArtifacts": [{"name": "<BuildArtifacts>"}],
+                        "outputArtifacts": [{"name": "<TestingArtifacts>"}],
+                        "configuration": {
+                            "ApplicationName": "<codedeploy_app_name>",
+                            "DeploymentGroup": "<codedeploy_deployment_group>"
+                        },
+                        "runOrder": 1
+                    }
+                ]
             }
         ],
-        "artifactStore": {},
+        "artifactStore": {
+            "type": "S3",
+            "location": "<bucket_name>-<current_region>"
+        },
         "name": "three-stage-skeleton",
         "version": "1"
     },
     "tags": [
         {
             "key": "Env",
-            "value": "Dev"
+            "value": "Test"
         }
     ]
 }
