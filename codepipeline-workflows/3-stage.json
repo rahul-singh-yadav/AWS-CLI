@@ -59,13 +59,13 @@
                             "category": "Deploy",
                             "owner": "AWS",
                             "version": "1",
-                            "provider": "Codedeploy"
+                            "provider": "CodeDeploy"
                         },
                         "inputArtifacts": [{"name": "<BuildArtifacts>"}],
-                        "outputArtifacts": [{"name": "<TestingArtifacts>"}],
+                        "outputArtifacts": [],
                         "configuration": {
                             "ApplicationName": "<codedeploy_app_name>",
-                            "DeploymentGroup": "<codedeploy_deployment_group>"
+                            "DeploymentGroupName": "<codedeploy_deployment_group>"
                         },
                         "runOrder": 1
                     }
