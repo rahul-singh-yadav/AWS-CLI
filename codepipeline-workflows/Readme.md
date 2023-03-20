@@ -5,7 +5,7 @@ The following json files provide a boilerplate to quickly provision a two stage,
 
 ### Pipeline Structure
 ---
-Core structure of `pipeline`(dictionary object) involves the following:
+Core structure of `pipeline` (dictionary object) involves the following:
 
 1. `roleArn`
 2. `stages`
@@ -23,7 +23,33 @@ Each stage containes the following,
 1. `name`
 2. `actions`
 
-With `actions` taking the bulk of the pipeline-as-code. 
+With *actions* taking the bulk of the pipeline-as-code. Find below a skeleton for reference:
+
+```
+[
+                {
+                   "inputArtifacts": [
+                        An input artifact structure, if supported for the action category
+                    ],
+                   "name": "ActionName",
+                   "region": "Region", 
+                   "namespace": "source_namespace", 
+                   "actionTypeId": {
+                        "category": "An action category",
+                        "owner": "AWS",
+                        "version": "1"
+                        "provider": "A provider type for the action category",
+                   },
+                   "outputArtifacts": [
+                        An output artifact structure, if supported for the action category
+                   ],
+                   "configuration": {
+                        Configuration details appropriate to the provider type
+                   },
+                   "runOrder": A positive integer that indicates the run order within the stage,
+                }
+            ]
+```
 
 
 ### Documentation
