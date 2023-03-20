@@ -1,6 +1,6 @@
 {
     "pipeline": {
-        "roleArn": "arn:aws:iam::156010108988:role/service-role/cfn-CodePipelineServiceRole",  
+        "roleArn": "arn:aws:iam::<account_id>:role/service-role/cfn-CodePipelineServiceRole",  
         "stages": [
             {
                 "name": "Source",
