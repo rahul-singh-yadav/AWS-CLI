@@ -1,26 +1,43 @@
 {
     "pipeline": {
         "roleArn": "arn:aws:iam:<account_id>:role/service-role/<code_pipeline_service_role>",
-        "stages":[
+        "stages": [
             {
                 "name": "Source",
-                "actions": []
-            },
-            {
-                "name": "Build",
-                "actions": []
-            },
-            {
-                "name": "Test",
-                "actions": []
+                "actions": [
+                    {
+                        "name": "From-Codecommit",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "version": "1",
+                            "provider": "Codecommit"
+                        },
+                        "inputArtifacts": [],
+                        "outputArtifacts": [
+                            {
+                                "name": "<SourceArtifacts>"
+                            }
+                        ],
+                        "configuration": {
+                            "RepositoryName": "SourceArtifacts",
+                            "BranchName": "main",
+                            "PollForSourceChanges": "false"
+
+                        },
+                        "runOrder": 1
+                    }
+                ]
             }
         ],
-        "artifactStore":{},
+        "artifactStore": {},
         "name": "three-stage-skeleton",
         "version": "1"
     },
-    "tags": [{
-        "key": "Env",
-        "value": "Dev"
-    }]
+    "tags": [
+        {
+            "key": "Env",
+            "value": "Dev"
+        }
+    ]
 }
